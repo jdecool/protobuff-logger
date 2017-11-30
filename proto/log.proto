@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package JDecool.ProtoLogger.Model;
+
+import "google/protobuf/timestamp.proto";
+
+message Log {
+    enum Level {
+        EMERGENCY = 0;
+        ALERT = 1;
+        CRITICAL = 2;
+        ERROR = 3;
+        WARNING = 4;
+        NOTICE = 5;
+        INFO = 6;
+        DEBUG = 7;
+    }
+
+    google.protobuf.Timestamp date = 1;
+    Level level = 2;
+    string message = 3;
+    map<string, string> context = 4;
+}
